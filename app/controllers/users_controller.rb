@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   
   def likes
     @user = User.find(params[:id])
-    @likes = Like.where(user_id: @user.id)
+    @pagy,@likes = pagy(@user.likes)
     counts(@user)
   end
   
